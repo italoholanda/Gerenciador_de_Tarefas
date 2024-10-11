@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import Task from "./Task";
 import "./styles.css";
 
+type Task = {
+  task: string
+  completed: boolean
+}
+
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [newTask, setNewTask] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTask(event.target.value);
   };
 
@@ -19,7 +24,7 @@ const App = () => {
     }
   };
 
-  const handleTaskClick = (index) => {
+  const handleTaskClick = (index: number) => {
     const updatedTasks = [...tasks];
     updatedTasks[index].completed = !updatedTasks[index].completed;
     setTasks(updatedTasks);

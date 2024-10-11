@@ -1,5 +1,10 @@
 import React from "react";
 
+/*
+ * @ToDo: convert it to .tsx file (Typescript)
+ * - don't use the `any` type
+ * - don't leave errors on terminal
+*/
 const Task = ({ task, completed, onClick }) => {
   return (
     <li
